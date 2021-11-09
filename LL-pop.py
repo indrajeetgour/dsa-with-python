@@ -29,17 +29,21 @@ class LinkedList:
         return True
 
     def pop(self):
+        # pre check
         if self.length == 0:
             return None
-
-        temp = self.head
-        pre = self.head
+        # temp 2 pointers temp and pre
+        temp = self.head # use as tail
+        pre = self.head # use as pre tail node
         while(temp.next):
             pre = temp
             temp = temp.next
+        # when reached the tail None(means nth)
         self.tail = pre
         self.tail.next = None
+        # as removed one element substract one element count
         self.length -= 1
+        # considering if we removed all the element, point head and tail to none
         if self.length == 0:
             self.head=None
             self.tail=None
