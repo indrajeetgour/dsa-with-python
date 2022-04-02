@@ -104,6 +104,49 @@ class LinkedList:
             temp.value = value
             return True
         return False
+    
+    def insert(self,index, value):
+        if index < 0 and index >= self.length:
+            return False
+        if index == 0:
+            return self.prepend(value)
+        if index == self.length:
+            return self.append(value)
+        
+        new_node = Node(value)
+        temp = self.get(index - 1)
+        new_node.next = temp.next
+        temp.next = new_node
+        self.length+=1
+        return True
+        
+    def remove(self, index):
+        if index < 0 and index >= self.length:
+            return False
+        if index == 0:
+            temp = self.get(index)
+            temp_post = self.get(index+1)
+            temp.next = None
+        if index == self.length:
+            temp = self.get(index)
+            temp_pre = self.get(index-1)
+            temp_pre.next = None
+        
+        temp = self.get(index)
+        temp_post = self.get(index+1)
+        temp_pre = self.get(index-1)
+        
+        temp_pre.next = temp_post
+        temp.next= None
+        
+        self.length-=1
+        return True
+    
+        temp = self.get(index)
+        previous = self.get(index -1 )
+        if temp:
+            temp.next
+        
 
 
 
@@ -119,8 +162,8 @@ print("Head: ",my_linked_list.head.value)
 print("Tail: ",my_linked_list.tail.value)
 
 index = 2
-print("set value at index: ",index)
-print(my_linked_list.set_value(index,22))
+print("Insert value at index: ",index)
+print(my_linked_list.insert(index,22))
 my_linked_list.print_list()
 
     
