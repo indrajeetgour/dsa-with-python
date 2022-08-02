@@ -126,18 +126,20 @@ class LinkedList:
         if index == 0:
             temp = self.get(index)
             temp_post = self.get(index+1)
+            self.head = temp_post
             temp.next = None
-        if index == self.length:
+        elif index == self.length - 1:
             temp = self.get(index)
             temp_pre = self.get(index-1)
             temp_pre.next = None
-        
-        temp = self.get(index)
-        temp_post = self.get(index+1)
-        temp_pre = self.get(index-1)
-        
-        temp_pre.next = temp_post
-        temp.next= None
+            self.tail = temp_pre
+        else:        
+            temp = self.get(index)
+            temp_post = self.get(index+1)
+            temp_pre = self.get(index-1)
+            
+            temp_pre.next = temp_post
+            temp.next= None
         
         self.length-=1
         return True
@@ -161,9 +163,11 @@ my_linked_list.print_list()
 print("Head: ",my_linked_list.head.value)
 print("Tail: ",my_linked_list.tail.value)
 
-index = 2
-print("Insert value at index: ",index)
-print(my_linked_list.insert(index,22))
+index = 1
+print("Remove element from index: ",index)
+print(my_linked_list.remove(index))
 my_linked_list.print_list()
+print("After operation - Head: ",my_linked_list.head.value)
+print("After operation - Tail: ",my_linked_list.tail.value)
 
     
