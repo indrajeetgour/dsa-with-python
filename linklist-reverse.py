@@ -144,6 +144,21 @@ class LinkedList:
         self.length-=1
         return True
 
+    def reverse(self):
+        temp = self.head
+        self.head = self.tail
+        self.tail = temp
+        
+        after = temp.next
+        before = None 
+        for _ in range(self.length):
+            after = temp.next
+            temp.next = before
+            before = temp
+            temp = after
+            
+        return temp
+    
 
 my_linked_list = LinkedList(0)
 my_linked_list.append(1)
@@ -157,8 +172,8 @@ print("Head: ",my_linked_list.head.value)
 print("Tail: ",my_linked_list.tail.value)
 
 index = 1
-print("Remove element from index: ",index)
-print(my_linked_list.remove(index))
+print("Reverse list: ",index)
+print(my_linked_list.reverse())
 my_linked_list.print_list()
 print("After operation - Head: ",my_linked_list.head.value)
 print("After operation - Tail: ",my_linked_list.tail.value)
