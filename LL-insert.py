@@ -122,21 +122,22 @@ class LinkedList:
             
 
 
-
 my_linked_list = LinkedList(0)
 my_linked_list.append(1)
 my_linked_list.append(2)
 my_linked_list.append(3)
 
-
 print("List Looks like: ")
 my_linked_list.print_list()
-print("Head: ",my_linked_list.head.value)
-print("Tail: ",my_linked_list.tail.value)
+print("Head: ", my_linked_list.head.value)
+print("Tail: ", my_linked_list.tail.value)
+print("curr size: ", my_linked_list.length)
 
 index = 2
-print("Insert value at index: ",index)
-print(my_linked_list.insert(index,22))
+print("Insert value at index: ", index)
+print(my_linked_list.insert(index, 22))
+print("Now list look like this: ")
 my_linked_list.print_list()
-
-    
+print("Head: ", my_linked_list.head.value)
+print("Tail: ", my_linked_list.tail.value)
+print("curr size: ", my_linked_list.length)
